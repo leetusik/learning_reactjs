@@ -13,16 +13,20 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById('root');
-    const H3 = () => (<h3 id="count" key="h3">hi</h3>);
-    function Button() {
-        return(<button onClick={() => console.log("Clicked")} key="button">Click Me!</button>)
+    let counter = 0;
+    function countUp() {
+        counter++;
+        render();
+    }
+    function render() {
+        ReactDOM.render(<Container />, root);
     }
     const Container = () => (
         <div>
-            <H3 />
-            <Button />
+            <h3 id="count">Click Me: {counter}</h3>
+            <button onClick={countUp}>Click Me!</button>
         </div>
     )
-    ReactDOM.render(<Container />, root);
+    render();
 </script>
 </html>
