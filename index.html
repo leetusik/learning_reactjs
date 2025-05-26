@@ -13,9 +13,16 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById('root');
-    const h3 = <h3 id="count" key="h3">hi</h3>
-    const btn = <button onClick={() => console.log("Clicked")} key="button">Click Me!</button>
-    const container = React.createElement("div", null, [h3, btn])
-    ReactDOM.render(container, root);
+    const H3 = () => (<h3 id="count" key="h3">hi</h3>);
+    function Button() {
+        return(<button onClick={() => console.log("Clicked")} key="button">Click Me!</button>)
+    }
+    const Container = () => (
+        <div>
+            <H3 />
+            <Button />
+        </div>
+    )
+    ReactDOM.render(<Container />, root);
 </script>
 </html>
